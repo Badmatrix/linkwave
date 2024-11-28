@@ -6,9 +6,12 @@ import PageNotFound from "./Pages/PageNotFound";
 import LoginPage from "./Pages/LoginPage";
 import SignupPage from "./Pages/SignupPage";
 import AppLayout from "./Components/AppLayout";
-import AddLinksPage from "./Pages/AddLinksPage";
 import PreviewPage from "./Pages/PreviewPage";
 import UpdateProfile from "./Pages/UpdateProfile";
+import UpdateLinkPage from "./Pages/UpdateLinkPage";
+import { AuthProvider } from "./Context/AuthProvider";
+import { UserDataProvider } from "./Hooks/UserDataProvider";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const queryClient = new QueryClient({
@@ -20,22 +23,45 @@ function App() {
   });
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" index element={<Homepage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="app" element={<AppLayout />}>
-            <Route index element={<Navigate to="link" />} />
-            <Route path="link" element={<AddLinksPage />} />
-            <Route path="profile" element={<UpdateProfile />} />
-          </Route>
-          <Route path="/preview" element={<PreviewPage />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
-
-      <ReactQueryDevtools initialIsOpen={false} />
+      <AuthProvider>
+        <UserDataProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" index element={<Homepage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
+              <Route path="app" element={<AppLayout />}>
+                <Route index element={<Navigate replace to="profile" />} />
+                <Route path="link" element={<UpdateLinkPage />} />
+                <Route path="profile" element={<UpdateProfile />} />
+              </Route>
+              <Route path="/preview" element={<PreviewPage />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </BrowserRouter>
+          <Toaster
+            position="top-center"
+            gutter={12}
+            containerStyle={{ margin: "8px" }}
+            toastOptions={{
+              success: {
+                duration: 3000,
+                
+              },
+              error: {
+                duration: 7000,
+              },
+              style: {
+                fontSize: "16px",
+                maxWidth: "500px",
+                backgroundColor: "#f2efff",
+                color: "#222121",
+              },
+            }}
+          />
+        </UserDataProvider>
+      </AuthProvider>
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   );
 }

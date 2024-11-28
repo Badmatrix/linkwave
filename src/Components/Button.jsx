@@ -15,9 +15,8 @@ function Button({ children, type, className, onClick, disabled }) {
     shadow-md
     focus:outline-none
     focus:ring-2
-    
     text-dark-100
-   
+   text-center
     disable:cursor-not-allowed
     
     ${buttonType === "primary" ? "bg-primary-300 text-white hover:bg-primary-300/90 focus:ring-0 shadow-primary-200 active:shadow-lg active:bg-primary-300/70 disabled:bg-primary-200" : ""}

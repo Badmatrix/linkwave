@@ -7,7 +7,7 @@ function PhoneSimulator() {
     <div className="hidden h-fit basis-2/5 justify-center rounded-xl bg-white px-7 pt-7 lg:flex">
       <div className="relative -mt-6 scale-90 rounded-[30px] border border-gray-600 p-4 sm:rounded-[40px] md:rounded-[55px]">
         <img
-          src="/public/icons/Subtract.svg"
+          src="/icons/Subtract.svg"
           className=""
           alt="phone simulator"
         />
