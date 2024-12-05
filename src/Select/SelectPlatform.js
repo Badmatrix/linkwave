@@ -27,7 +27,7 @@
     {
       name: "Frontend Mentor",
       icon: SiFrontendmentor,
-      style: "bg-white text-black",
+      style: "bg-white text-black border border-black",
       placeholder: "e.g. https://www.frontendmentor.io/profile/johnappleseed",
       validatePattern: [
         "https://www.frontendmentor.io/profile/",
@@ -39,7 +39,7 @@
     {
       name: "X",
       icon: BsTwitterX ,
-      style: "bg-[#43B7E9] text-white",
+      style: "bg-black text-white",
       placeholder: "e.g. https://x.com/johnappleseed",
       validatePattern: [
         "https://www.x.com/",

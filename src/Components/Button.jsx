@@ -26,7 +26,7 @@ function Button({ children, type, className, onClick, disabled }) {
 
   return (
     <button
-      type="button"
+      type="submit"
       className={buttonClasses}
       onClick={onClick}
       disabled={disabled}

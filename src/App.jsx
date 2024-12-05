@@ -12,6 +12,7 @@ import UpdateLinkPage from "./Pages/UpdateLinkPage";
 import { AuthProvider } from "./Context/AuthProvider";
 import { UserDataProvider } from "./Hooks/UserDataProvider";
 import { Toaster } from "react-hot-toast";
+import { UserInputtedLinkProvider } from "./Context/UserInputtedLinkProvider";
 
 function App() {
   const queryClient = new QueryClient({
@@ -30,7 +31,14 @@ function App() {
               <Route path="/" index element={<Homepage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
-              <Route path="app" element={<AppLayout />}>
+              <Route
+                path="app"
+                element={
+                  <UserInputtedLinkProvider>
+                    <AppLayout />
+                  </UserInputtedLinkProvider>
+                }
+              >
                 <Route index element={<Navigate replace to="profile" />} />
                 <Route path="link" element={<UpdateLinkPage />} />
                 <Route path="profile" element={<UpdateProfile />} />
@@ -46,7 +54,6 @@ function App() {
             toastOptions={{
               success: {
                 duration: 3000,
-                
               },
               error: {
                 duration: 7000,

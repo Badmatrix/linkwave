@@ -7,7 +7,7 @@ import Tab from "./Tab";
 
 function Navbar() {
   return (
-    <Card className="my-1">
+    <Card className="mt-2 mb-5">
       <nav className="app-nav mx-5 flex items-center justify-between py-3">
         <Link to="/">
           <div className="flex items-center justify-center gap-3">

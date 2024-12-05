@@ -1,10 +1,11 @@
+/* eslint-disable no-undef */
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCrNy00TJdybfS0jr4iH7pw3SJ29edgKdw",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "linkwave-1ffda.firebaseapp.com",
   projectId: "linkwave-1ffda",
   storageBucket: "linkwave-1ffda.appspot.com",

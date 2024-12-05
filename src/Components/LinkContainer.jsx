@@ -1,14 +1,18 @@
 /* eslint-disable react/prop-types */
+import { useLinks } from "../Context/UserInputtedLinkProvider";
 import LinkContainerList from "./LinkContainerList";
 
-function LinkContainer({ selectPlatform, handleRemoveLink }) {
+function LinkContainer({ handleRemoveLink, register, errors }) {
+  const { userLinks } = useLinks();
   return (
-    <ul className="space-y-5">
-      {selectPlatform.map((item, index) => (
+    <ul className="no-scrollbar h-[400px] space-y-3 overflow-y-scroll">
+      {userLinks.map((item, index) => (
         <LinkContainerList
-          key={index}
-          item={item}
           index={index}
+          key={item.name}
+          item={item}
+          register={register}
+          errors={errors}
           handleRemoveLink={handleRemoveLink}
         />
       ))}
