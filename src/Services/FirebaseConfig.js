@@ -19,7 +19,7 @@ const firebaseConfig = {
   storageBucket: "linkwave-1ffda.firebasestorage.app",
   messagingSenderId: "109499012411",
   appId: "1:109499012411:web:dd3ac677fe19b0537bd31e",
-  measurementId: import.meta.env.VITE_FIREBASE_MESUREMENT_ID,
+  measurementId: "G-663W42P5VW",
 };
 
 // Initialize Firebase
