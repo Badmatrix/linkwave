@@ -13,7 +13,7 @@ import { getStorage } from "firebase/storage";
 // measurementId: import.meta.env.VITE_FIREBASE_MESUREMENT_ID,
 // };
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  apiKey: "AIzaSyCrNy00TJdybfS0jr4iH7pw3SJ29edgKdw",
   authDomain: "linkwave-1ffda.firebaseapp.com",
   projectId: "linkwave-1ffda",
   storageBucket: "linkwave-1ffda.firebasestorage.app",
