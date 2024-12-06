@@ -14,7 +14,7 @@ export async function getAuthUserData(userId) {
     return docSnap.data();
   } else {
     // docSnap.data() will be undefined in this case
-    return "No such document!";
+    throw new Error("No such document!");
   }
 }
 
@@ -30,7 +30,7 @@ export async function updateUserLinks(userId, links) {
   // console.log(userId,links)
   const authUser = doc(firestore, "usersLinks", userId);
   const newLink = links.map((link) => {
-    return { ...link, icon: link.icon.toString() };
+    return { ...link, icon: link.icon.name };
   });
   const update = await updateDoc(authUser, {
     links: newLink,

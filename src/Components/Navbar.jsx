@@ -4,10 +4,14 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { Link} from "react-router-dom";
 import Tab from "./Tab";
+import { useAuth } from "../Context/AuthProvider";
 
 function Navbar() {
+  const authUser = useAuth()
+  const { uid } = authUser;
+  // console.log(authUser)
   return (
-    <Card className="mt-2 mb-5">
+    <Card className="mb-5 mt-2">
       <nav className="app-nav mx-5 flex items-center justify-between py-3">
         <Link to="/">
           <div className="flex items-center justify-center gap-3">
@@ -35,7 +39,7 @@ function Navbar() {
           </Tab>
         </div>
         <Tab
-          to="/preview"
+          to={`/preview/${uid}`}
           className="border border-primary-300 bg-white text-sm shadow-none active:bg-primary-200/30"
         >
           <MdOutlineRemoveRedEye className="text-base sm:text-lg md:hidden" />

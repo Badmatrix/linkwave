@@ -29,7 +29,7 @@ function UpdateProfile() {
     mutate({ firstname, lastname, userId });
   }
   if (isLoading) return null;
-  if (!isLoading && !data) return <Error />;
+  if(!isLoading && error) <Error error={error}/>
   return (
     <Card className="basis-3/5 px-4 md:px-7">
       <form>

@@ -43,7 +43,7 @@ function App() {
                 <Route path="link" element={<UpdateLinkPage />} />
                 <Route path="profile" element={<UpdateProfile />} />
               </Route>
-              <Route path="/preview" element={<PreviewPage />} />
+              <Route path="/preview/:userID" element={<PreviewPage />} />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>
