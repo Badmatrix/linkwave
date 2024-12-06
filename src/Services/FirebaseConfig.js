@@ -17,8 +17,8 @@ const firebaseConfig = {
   authDomain: "linkwave-1ffda.firebaseapp.com",
   projectId: "linkwave-1ffda",
   storageBucket: "linkwave-1ffda.firebasestorage.app",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGE_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  messagingSenderId: "109499012411",
+  appId: "1:109499012411:web:dd3ac677fe19b0537bd31e",
   measurementId: import.meta.env.VITE_FIREBASE_MESUREMENT_ID,
 };
 
