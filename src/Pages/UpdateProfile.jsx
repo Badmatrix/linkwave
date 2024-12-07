@@ -33,7 +33,7 @@ function UpdateProfile() {
   return (
     <Card className="basis-3/5 px-4 md:px-7">
       <form>
-        <fieldset disabled={isPending} className="space-y-5 py-5 lg:space-y-7">
+        <fieldset disabled={isPending || isLoading} className="space-y-5 py-5 lg:space-y-7">
           <header className="space-y-1">
             <Typography
               variant="h4"
