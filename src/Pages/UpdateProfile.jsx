@@ -1,17 +1,18 @@
 import { Card, Input, Spinner, Typography } from "@material-tailwind/react";
-import { PiImage } from "react-icons/pi";
 import Button from "../Components/Button";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../Context/AuthProvider";
 import { useAuthUserData } from "../Hooks/UserDataProvider";
 import Error from "../Components/Error";
 import UseProfileUpdate from "../Hooks/UseProfileUpdate";
+import UploadImage from "../Components/UploadImage";
+import { updateProfile } from "firebase/auth";
 
 function UpdateProfile() {
   const authUser = useAuth();
   const { email, uid } = authUser;
-  const { data, error, isLoading } = useAuthUserData();
-  const { mutate, isPending} = UseProfileUpdate();
+  const { data, isLoading, isError } = useAuthUserData();
+  const { mutate, isPending } = UseProfileUpdate();
   // console.log(data);
 
   const {
@@ -22,19 +23,35 @@ function UpdateProfile() {
     defaultValues: {
       email,
       userId: uid,
+      firstname: data?.firstname,
+      lastname: data?.lastname,
     },
   });
 
   function setProfile({ firstname, lastname, userId }) {
     mutate({ firstname, lastname, userId });
+    updateProfile(authUser, {
+      displayName: `${firstname} ${lastname} `,
+    });
   }
-  if (isLoading) return null;
-  if(!isLoading && error) <Error error={error}/>
+  if (isLoading)
+    return (
+      <div className="my-7 flex items-center justify-center">
+        <Spinner
+          className="aspect-square h-24 w-24 text-primary-300"
+          color="blue-gray"
+        />
+      </div>
+    );
+  if (isError) return <Error />;
   return (
     <Card className="basis-3/5 px-4 md:px-7">
-      <form>
-        <fieldset disabled={isPending || isLoading} className="space-y-5 py-5 lg:space-y-7">
-          <header className="space-y-1">
+      <form className="flex flex-col space-y-7 overflow-hidden px-5 py-3">
+        <fieldset
+          disabled={isLoading || isPending}
+          className="space-y-5 py-5 lg:space-y-7"
+        >
+          <header className="space-y-2">
             <Typography
               variant="h4"
               color="black"
@@ -46,18 +63,7 @@ function UpdateProfile() {
               Add your details to create a personal touch to your profile.
             </Typography>
           </header>
-          <Card className="grid items-center justify-center gap-5 bg-dark-100 px-3 py-5 sm:grid-cols-3">
-            <Typography className="text-sm">Profile picture</Typography>
-            <Card className="flex items-center justify-center space-y-2 bg-primary-100 py-4 text-center align-middle">
-              <div className=" ">
-                <PiImage className="text-4xl text-primary-300 md:text-5xl" />
-              </div>
-              <span className="text-sm">+ upload image</span>
-            </Card>
-            <Typography className="text-xs md:text-[10px]">
-              Image must be below 1024x1024px. Use PNG or JPG format.
-            </Typography>
-          </Card>
+          <UploadImage />
 
           <Card className="space-y-7 bg-dark-100 px-3 py-5 sm:px-5">
             <div className="items-center justify-between space-y-2 sm:flex md:space-y-0">
@@ -70,7 +76,6 @@ function UpdateProfile() {
                 label="firstname"
                 size="md"
                 placeholder="John"
-                defaultValue={data?.firstname}
                 {...register("firstname", {
                   pattern: {
                     value: /^[A-Za-z]+$/i,
@@ -87,7 +92,6 @@ function UpdateProfile() {
                 }
                 label="Lastname"
                 size="md"
-                defaultValue={data?.lastname}
                 placeholder="Doe"
                 {...register("lastname", {
                   pattern: {
@@ -114,7 +118,7 @@ function UpdateProfile() {
               </Typography>
             )}
           </Card>
-          <div className="-mt-10 flex justify-end">
+          <div className="flex w-full justify-end border-t py-2">
             <Button
               onClick={handleSubmit(setProfile)}
               disabled={errors.firstname || errors.lastname || isPending}

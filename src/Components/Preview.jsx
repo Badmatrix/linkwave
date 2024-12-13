@@ -12,7 +12,8 @@ export default function Preview({ userId }) {
     queryKey: ["getData"],
     queryFn: () => getAuthUserData(userId),
   });
-  // console.log(error);
+
+
   if (isLoading)
     return (
       <Spinner className="my-5 h-24 w-24 text-primary-200" color="blue-gray" />
@@ -25,12 +26,12 @@ export default function Preview({ userId }) {
           <Avatar
             size="xl"
             alt="avatar"
-            src={`https://ui-avatars.com/api/?name=badmus hameed`}
+            src={`https://ui-avatars.com/api/?name=${data?.firstname} ${data?.lastname} `}
             className="border border-primary-300 ring-2 ring-primary-300"
           />
         </div>
         <div className="space-y-0">
-          <Typography className="text-lg font-semibold text-dark-400">{`${data?.lastname} ${data?.firstname}`}</Typography>
+          <Typography className="text-lg font-semibold capitalize text-dark-400">{`${data?.firstname} ${data?.lastname}`}</Typography>
           {/* <Typography>{email}</Typography> */}
         </div>
         <ul className="">

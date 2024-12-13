@@ -19,7 +19,7 @@ function PreviewLinkList({ link }) {
   return (
     <Link to={link?.url} key={link.name}>
       <li
-        className={`my-3 flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium shadow-md md:text-base lg:text-lg ${link.style}`}
+        className={`my-3 flex w-full items-center justify-between gap-7 rounded-md px-3 py-2 text-sm font-medium shadow-md md:text-base lg:text-lg ${link.style}`}
       >
         <div className="flex items-center gap-3">
           <Icon />

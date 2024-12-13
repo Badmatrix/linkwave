@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../Components/Button";
 import Preview from "../Components/Preview";
+import toast from "react-hot-toast";
 
 function PreviewPage() {
   // const [copied, setCopied] = useState(false);
@@ -12,24 +13,24 @@ function PreviewPage() {
     navigator
       .share({
         title: document.title,
-        text: "Check out this link!",
+        text: "Share link with your friends!",
         url: url,
       })
       .then(() => {
-        console.log("Shared successfully!");
+        toast.success("Link copied");
       })
       .catch((error) => {
-        console.error("Error sharing:", error);
+        toast.error("Error sharing:", error)
       });
   };
   return (
     <div className="">
-      <div className="relative h-full pt-1 sm:rounded-b-[28px] sm:bg-primary-300 sm:pb-28 md:rounded-b-[32px] md:pb-36">
-        <nav className="mt-3 flex justify-between rounded-lg px-3 py-4 sm:mx-5 sm:bg-white md:shadow-sm">
+      <div className="relative h-full pt-1 sm:rounded-b-[28px] bg-primary-300 sm:pb-28 md:rounded-b-[32px] pb-20 md:pb-36">
+        <nav className="mt-3 flex justify-between sm:rounded-lg px-3 py-4 sm:mx-5 bg-white md:shadow-sm rounded-none">
           <Button
             type="primary"
             onClick={() => navigate(-1)}
-            className="border-primary-300"
+            className="border-primary-300 text-xs sm:text-sm"
           >
             Back to editor
           </Button>

@@ -1,6 +1,8 @@
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { auth, firestore } from "./FirebaseConfig";
+import { auth, firestore} from "./FirebaseConfig";
 import { updateProfile } from "firebase/auth";
+
+
 
 export async function getAuthUserData(userId) {
   // const snapshot = doc(firestore, "usersLinks", userId);
