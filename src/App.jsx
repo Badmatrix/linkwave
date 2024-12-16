@@ -10,15 +10,15 @@ import PreviewPage from "./Pages/PreviewPage";
 import UpdateProfile from "./Pages/UpdateProfile";
 import UpdateLinkPage from "./Pages/UpdateLinkPage";
 import { AuthProvider } from "./Context/AuthProvider";
-import { UserDataProvider } from "./Hooks/UserDataProvider";
 import { Toaster } from "react-hot-toast";
+import { UserDataProvider } from "./Hooks/UserDataProvider";
 import { UserInputtedLinkProvider } from "./Context/UserInputtedLinkProvider";
 
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 6 * 1000,
+        staleTime: 0,
       },
     },
   });
@@ -27,11 +27,12 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/login" index element={<LoginPage />} />
+            <Route index element={<Navigate replace to="/login" />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route
               path="app"
+              // element={<AppLayout />}
               element={
                 <UserDataProvider>
                   <UserInputtedLinkProvider>
@@ -68,7 +69,7 @@ function App() {
           }}
         />
       </AuthProvider>
-      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

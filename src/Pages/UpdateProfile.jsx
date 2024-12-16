@@ -3,7 +3,6 @@ import Button from "../Components/Button";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../Context/AuthProvider";
 import { useAuthUserData } from "../Hooks/UserDataProvider";
-import Error from "../Components/Error";
 import UseProfileUpdate from "../Hooks/UseProfileUpdate";
 import UploadImage from "../Components/UploadImage";
 import { updateProfile } from "firebase/auth";
@@ -11,9 +10,8 @@ import { updateProfile } from "firebase/auth";
 function UpdateProfile() {
   const authUser = useAuth();
   const { email, uid } = authUser;
-  const { data, isLoading, isError } = useAuthUserData();
+  const  data  = useAuthUserData();
   const { mutate, isPending } = UseProfileUpdate();
-  // console.log(data);
 
   const {
     register,
@@ -34,21 +32,12 @@ function UpdateProfile() {
       displayName: `${firstname} ${lastname} `,
     });
   }
-  if (isLoading)
-    return (
-      <div className="my-7 flex items-center justify-center">
-        <Spinner
-          className="aspect-square h-24 w-24 text-primary-300"
-          color="blue-gray"
-        />
-      </div>
-    );
-  if (isError) return <Error />;
+ 
   return (
     <Card className="basis-3/5 px-4 md:px-7">
       <form className="flex flex-col space-y-7 overflow-hidden px-5 py-3">
         <fieldset
-          disabled={isLoading || isPending}
+          disabled={ isPending}
           className="space-y-5 py-5 lg:space-y-7"
         >
           <header className="space-y-2">

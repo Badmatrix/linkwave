@@ -1,22 +1,15 @@
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { auth, firestore} from "./FirebaseConfig";
-import { updateProfile } from "firebase/auth";
-
-
+import {  firestore } from "./FirebaseConfig";
+// import { updateProfile } from "firebase/auth";
 
 export async function getAuthUserData(userId) {
-  // const snapshot = doc(firestore, "usersLinks", userId);
-  // await getDoc(snapshot)
-  //   .then((data) => data.data())
-  //   .catch((err) => err.message);
-
   const docRef = doc(firestore, "usersLinks", userId);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
     return docSnap.data();
   } else {
     // docSnap.data() will be undefined in this case
-    throw new Error("No such document!");
+    throw new Error("invalid user...check and try again");
   }
 }
 
@@ -42,19 +35,19 @@ export async function updateUserLinks(userId, links) {
   return update;
 }
 
-export async function updateUserImage({ imageUrl }) {
-  const res = await updateProfile(auth.currentUser, {
-    photoURL: imageUrl,
-  })
-    .then(() => {
-      // Profile updated!
-      // ...
-    })
-    .catch((err) => {
-      // An error occurred
-      // ...
-      console.log(err);
-      return err;
-    });
-  return res;
-}
+// export async function updateUserImage({ imageUrl }) {
+//   const res = await updateProfile(auth.currentUser, {
+//     photoURL: imageUrl,
+//   })
+//     .then(() => {
+//       // Profile updated!
+//       // ...
+//     })
+//     .catch((err) => {
+//       // An error occurred
+//       // ...
+//       console.log(err);
+//       return err;
+//     });
+//   return res;
+// }

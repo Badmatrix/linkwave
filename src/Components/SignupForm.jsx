@@ -7,13 +7,13 @@ import UseSignUp from "../Hooks/UseSignUp";
 
 function SignupForm() {
   const { mutate, isPending, formData } = UseSignUp();
-
   const {
     register,
     handleSubmit,
     getValues,
     formState: { errors },
   } = formData
+  
   function handleSignUp({ email, password, confirmPassword }) {
     mutate({ email, password, confirmPassword });
   }

@@ -9,6 +9,7 @@ export async function signUp({ email, password, confirmPassword }) {
       // Signed up && create firestore document for users links
       const user = userCredential.user;
       setDoc(doc(firestore, "usersLinks", user.uid), {
+        email:user.email,
         firstname: "",
         lastname: "",
         links: [],
@@ -31,7 +32,6 @@ export async function login({ email, password }) {
     .catch((error) => {
       throw new Error(error.message);
     });
-  // console.log(response);
   return response;
 }
 

@@ -1,11 +1,9 @@
 import { useAuth } from "../Context/AuthProvider";
-import EmptyUserProfile from "./EmptyUserProfile";
 import { Avatar, Typography } from "@material-tailwind/react";
 
 function UserProfile() {
-  const profile = useAuth()
-  const{email,displayName,photoURL}=profile
-  if (!profile) return <EmptyUserProfile />;
+  const profile = useAuth();
+  const { email, displayName, photoURL } = profile;
   return (
     <>
       <Avatar

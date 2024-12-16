@@ -13,7 +13,6 @@ function LoginPage() {
     },
     [currUser, navigate],
   );
-  // console.log(currUser);
   return (
     <div className="flex max-w-full items-center justify-center align-middle">
       <div className="space-y-5">

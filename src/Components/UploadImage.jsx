@@ -1,5 +1,4 @@
 import { Card, Typography } from "@material-tailwind/react";
-import { useState } from "react";
 import { PiImage } from "react-icons/pi";
 
 function UploadImage() {
