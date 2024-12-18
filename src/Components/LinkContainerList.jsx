@@ -106,6 +106,7 @@ function LinkContainerList({
               labelProps={{
                 className: "before:content-none",
               }}
+              value={activeLinks?.url}
               onChange={handleSetUrl}
             />
             {errors && (

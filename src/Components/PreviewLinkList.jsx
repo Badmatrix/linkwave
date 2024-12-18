@@ -17,15 +17,19 @@ import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 function PreviewLinkList({ link }) {
-  const Icon = eval(link.icon);
+  const { name, url, icon } = link;
+
+  const Icon = eval(icon);
+  const linkUrl = url.includes("https://") ? url : `https://${url}`;
+
   return (
-    <Link to={link?.url} key={link.name}>
+    <Link to={linkUrl} key={name}>
       <li
         className={`my-3 flex w-full items-center justify-between gap-7 rounded-md px-3 py-2 text-sm font-medium shadow-md md:text-base lg:text-lg ${link.style}`}
       >
         <div className="flex items-center gap-3">
           <Icon />
-          {link.name}
+          {name}
         </div>
         <FaArrowRight />
       </li>
