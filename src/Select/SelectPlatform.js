@@ -14,30 +14,6 @@ import { SiFrontendmentor, SiCodewars, SiHashnode } from "react-icons/si";
 
 export const platformLinks = [
   {
-    name: "GitHub",
-    icon: PiGithubLogoFill,
-    style: "bg-black text-white",
-    placeholder: "e.g. https://www.github.com/matrixlink",
-    validatePattern: [
-      "https://www.github.com/",
-      "https://github.com/",
-      "www.github.com/",
-      "github.com/",
-    ],
-  },
-  {
-    name: "Frontend Mentor",
-    icon: SiFrontendmentor,
-    style: "bg-white text-black border border-black",
-    placeholder: "e.g. https://www.frontendmentor.io/profile/johnappleseed",
-    validatePattern: [
-      "https://www.frontendmentor.io/profile/",
-      "https://frontendmentor.io/profile/",
-      "www.frontendmentor.io/profile/",
-      "frontendmentor.io/profile/",
-    ],
-  },
-  {
     name: "X",
     icon: BsTwitterX,
     style: "bg-[#27292b] text-white",
@@ -61,18 +37,7 @@ export const platformLinks = [
       "linkedIn.com/in/",
     ],
   },
-  {
-    name: "YouTube",
-    icon: AiFillYoutube,
-    style: "bg-[#EE3939] text-white",
-    placeholder: "e.g. https://www.youtube.com/@johnappleseed",
-    validatePattern: [
-      "https://www.youtube.com/@",
-      "https://youtube.com/@",
-      "www.youtube.com/@",
-      "youtube.com/@",
-    ],
-  },
+
   {
     name: "Facebook",
     icon: BsFacebook,
@@ -106,9 +71,46 @@ export const platformLinks = [
       "https://www.instagram.com/",
       "https://instagram.com/",
       "www.instagram.com/username",
-      ".instagram.com/",
+      "instagram.com/",
     ],
   },
+  {
+    name: "YouTube",
+    icon: AiFillYoutube,
+    style: "bg-[#EE3939] text-white",
+    placeholder: "e.g. https://www.youtube.com/@johnappleseed",
+    validatePattern: [
+      "https://www.youtube.com/@",
+      "https://youtube.com/@",
+      "www.youtube.com/@",
+      "youtube.com/@",
+    ],
+  },
+  {
+    name: "GitHub",
+    icon: PiGithubLogoFill,
+    style: "bg-black text-white",
+    placeholder: "e.g. https://www.github.com/matrixlink",
+    validatePattern: [
+      "https://www.github.com/",
+      "https://github.com/",
+      "www.github.com/",
+      "github.com/",
+    ],
+  },
+  {
+    name: "Frontend Mentor",
+    icon: SiFrontendmentor,
+    style: "bg-white text-black border border-black",
+    placeholder: "e.g. https://www.frontendmentor.io/profile/johnappleseed",
+    validatePattern: [
+      "https://www.frontendmentor.io/profile/",
+      "https://frontendmentor.io/profile/",
+      "www.frontendmentor.io/profile/",
+      "frontendmentor.io/profile/",
+    ],
+  },
+
   {
     name: "Twitch",
     icon: BsTwitch,

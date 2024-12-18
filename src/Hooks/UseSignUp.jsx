@@ -17,8 +17,8 @@ function UseSignUp() {
       reset();
     },
     onError: (err) => {
-      // console.log(err.message);
-      toast.error(`${err.name}: ${err.message.slice(17, -2)}`);
+      console.log(err.message);
+      toast.error(`${err.name}`);
     },
   });
 

@@ -1,16 +1,18 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
- import { AiFillYoutube, AiOutlineCodepen } from "react-icons/ai";
- import {
-   BsLinkedin,
-   BsFacebook,
-   BsTwitch,
-   BsStackOverflow,
-   BsTwitterX,
- } from "react-icons/bs";
- import { FaDev, FaFreeCodeCamp, FaGitlab } from "react-icons/fa6";
- import { PiGithubLogoFill } from "react-icons/pi";
- import { SiFrontendmentor, SiCodewars, SiHashnode } from "react-icons/si";
+import { AiFillYoutube, AiOutlineCodepen } from "react-icons/ai";
+import {
+  BsLinkedin,
+  BsFacebook,
+  BsTwitch,
+  BsStackOverflow,
+  BsTwitterX,
+} from "react-icons/bs";
+import { FaDev, FaFreeCodeCamp, FaGitlab, FaTiktok } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
+
+import { PiGithubLogoFill } from "react-icons/pi";
+import { SiFrontendmentor, SiCodewars, SiHashnode } from "react-icons/si";
 import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 

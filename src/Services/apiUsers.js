@@ -25,8 +25,9 @@ export async function updateUserLinks(userId, links) {
   // console.log(userId,links)
   const authUser = doc(firestore, "usersLinks", userId);
   const newLink = links.map((link) => {
-    return { ...link, icon: link.icon.name };
+    return { ...link, icon: link.icon?.name || link.icon };
   });
+  console.log(newLink)
   const update = await updateDoc(authUser, {
     links: newLink,
   })

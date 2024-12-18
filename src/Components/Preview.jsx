@@ -18,7 +18,7 @@ export default function Preview({ userId }) {
     <Card className="mx-0 my-3 w-full items-center rounded-none bg-transparent py-10 text-center shadow-none sm:w-3/4 sm:rounded-lg sm:bg-white sm:shadow-lg md:w-2/5 md:rounded-xl xl:w-[30%]">
       <main className="space-y-5">
         {!isLoading && data ? (
-          <div>
+          <div className="space-y-3">
             <Avatar
               size="xl"
               alt="avatar"

@@ -11,7 +11,7 @@ import UpdateLinkPage from "./Pages/UpdateLinkPage";
 import { AuthProvider } from "./Context/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import { UserDataProvider } from "./Hooks/UserDataProvider";
-import { UserInputtedLinkProvider } from "./Context/UserInputtedLinkProvider";
+import { UsersActiveLinksProvider } from "./Context/UsersActiveLinksProvider";
 
 function App() {
   const queryClient = new QueryClient({
@@ -34,9 +34,9 @@ function App() {
               // element={<AppLayout />}
               element={
                 <UserDataProvider>
-                  <UserInputtedLinkProvider>
+                  <UsersActiveLinksProvider>
                     <AppLayout />
-                  </UserInputtedLinkProvider>
+                  </UsersActiveLinksProvider>
                 </UserDataProvider>
               }
             >
