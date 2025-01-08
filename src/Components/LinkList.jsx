@@ -28,7 +28,9 @@ function LinkList() {
     <ul className="z-0">
       {userLinks.map((link) => {
         const { name, url, icon } = link;
-        const linkUrl = url.includes("https://") ? url : `https://${url}`;
+        
+        const linkUrl =
+          url && url.includes("https://") ? url : `https://${url}`;
 
         const Icon = eval(icon);
         return (
